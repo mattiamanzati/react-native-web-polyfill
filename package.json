@@ -1,0 +1,23 @@
+{
+  "name": "react-native-web-polyfill",
+  "version": "0.0.1",
+  "description": "A set of classes and react components to make work your react-native app in a browser. (with some limitations obviously)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilmattodel93/react-native-web-polyfill.git"
+  },
+  "keywords": [
+    "react",
+    "react-native"
+  ],
+  "author": "IlMattoDel93 <Mattia Manzati>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilmattodel93/react-native-web-polyfill/issues"
+  },
+  "homepage": "https://github.com/ilmattodel93/react-native-web-polyfill#readme"
+}
