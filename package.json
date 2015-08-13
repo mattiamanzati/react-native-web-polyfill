@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ilmattodel93/react-native-web-polyfill/issues"
   },
-  "homepage": "https://github.com/ilmattodel93/react-native-web-polyfill#readme"
+  "homepage": "https://github.com/ilmattodel93/react-native-web-polyfill#readme",
+  "dependencies": {
+    "radium": "^0.13.7"
+  }
 }
