@@ -22,5 +22,12 @@
   "homepage": "https://github.com/ilmattodel93/react-native-web-polyfill#readme",
   "dependencies": {
     "radium": "^0.13.7"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-postcss": "^5.1.10",
+    "gulp-sourcemaps": "^1.5.2"
   }
 }

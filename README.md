@@ -7,7 +7,7 @@ We encourage you to help us by reporting those or PR implementation of them! :D
 
 ### What limitations?
 Since it is all plain javascript, any native binary module won't be supported.
-By the way we are planning to provide an extra folder that will contains polyfills and workaround for the exposed api of these modules.
+By the way we are planning to provide an extra folder that will contains polyfills and workaround for the exposed api of some of these modules.
 
 ### How can i install this?
 - Move into your react-native project folder and install react-native-web-polyfill
@@ -31,5 +31,5 @@ npm install react-native-web-polyfill
 }
 ```
 - Run webpack
-- Create an HTML document, with a div with an id="app" including the bundled webpack script and linking the css stylesheet react-native-web-polyfill/bundle.css
+- Create an HTML document, with a div with an id="app" including the bundled webpack script and linking the css stylesheet node_modules/react-native-web-polyfill/style.css
 - Report any error to let us improve and help you! :D
