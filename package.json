@@ -1,6 +1,6 @@
 {
   "name": "react-native-web-polyfill",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A set of classes and react components to make work your react-native app in a browser. (with some limitations obviously)",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ilmattodel93/react-native-web-polyfill.git"
+    "url": "git+https://github.com/mattiamanzati/react-native-web-polyfill.git"
   },
   "keywords": [
     "react",
@@ -17,17 +17,22 @@
   "author": "IlMattoDel93 <Mattia Manzati>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ilmattodel93/react-native-web-polyfill/issues"
+    "url": "https://github.com/mattiamanzati/react-native-web-polyfill/issues"
   },
-  "homepage": "https://github.com/ilmattodel93/react-native-web-polyfill#readme",
+  "homepage": "https://github.com/mattiamanzati/react-native-web-polyfill#readme",
   "dependencies": {
-    "radium": "^0.13.7"
+    "eventemitter3": "^1.1.1",
+    "radium": "^0.13.7",
+    "react": "^0.13.3"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
     "gulp-postcss": "^5.1.10",
-    "gulp-sourcemaps": "^1.5.2"
+    "gulp-sourcemaps": "^1.5.2",
+    "webpack": "^1.11.0"
   }
 }

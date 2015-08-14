@@ -10,4 +10,4 @@ class NotPortedYet extends React.Component{
     }
 }
 
-module.exports = Radium(View);
+module.exports = Radium(NotPortedYet);

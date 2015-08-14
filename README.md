@@ -26,7 +26,7 @@ npm install react-native-web-polyfill
   }
   // setup the macro to resolve require("image!...")
   externals: [
-    require("react-native-web-polyfill/macro/image")
+    require("react-native-web-polyfill/src/macro/image")
   ],
 }
 ```
