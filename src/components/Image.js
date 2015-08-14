@@ -4,14 +4,14 @@ var browserifyStyle = require('../utils/browserifyStyle');
 
 class Image extends React.Component{
   render(){
-    var resizeMode = typeof this.props.resizeMode === 'undefined' ?
+    var backgroundSize = typeof this.props.resizeMode === 'undefined' ?
       'cover' : this.props.resizeMode;
 
     var backgroundImage = typeof this.props.source === 'undefined' ?
       'none' : 'url(' + this.props.source.uri + ')';
 
     var style = {
-      resizeMode,
+      backgroundSize,
       backgroundImage
     };
 
