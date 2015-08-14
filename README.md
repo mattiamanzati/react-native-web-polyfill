@@ -9,6 +9,10 @@ We encourage you to help us by reporting those or PR implementation of them! :D
 Since it is all plain javascript, any native binary module won't be supported.
 By the way we are planning to provide an extra folder that will contains polyfills and workaround for the exposed api of some of these modules.
 
+### Check out the examples!
+- [Sample App](http://mattiamanzati.github.io/react-native-web-polyfill/examples/SampleApp/)
+- [Tic Tac Toe](http://mattiamanzati.github.io/react-native-web-polyfill/examples/TicTacToe/)
+
 ### How can i install this?
 - Move into your react-native project folder and install react-native-web-polyfill
 ```
