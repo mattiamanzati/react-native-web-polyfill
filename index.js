@@ -11,11 +11,14 @@ React.Image = require('./src/components/Image');
 React.TextInput = require('./src/components/TextInput');
 React.ScrollView = require('./src/components/ScrollView');
 
+React.TouchableWithoutFeedback = require('./src/components/TouchableWithoutFeedback');
+React.TouchableHighlight = require('./src/components/TouchableWithoutFeedback');
+React.TouchableOpacity = require('./src/components/TouchableWithoutFeedback');
+
 // Not ported yet.
 var notPortedYetComponents = ['ActivityIndicatorIOS', 'DatePickerIOS', 'ListView', 'MapView',
   'Navigator', 'NavigatorIOS', 'PickerIOS', 'SegmentedControlIOS',
-  'SliderIOS', 'SwitchIOS', 'TabBarIOS', 'TouchableHighlight', 'TouchableOpacity',
-  'TouchableWithoutFeedback', 'WebView'];
+  'SliderIOS', 'SwitchIOS', 'TabBarIOS', 'WebView'];
 for(var i = 0; i < notPortedYetComponents.length; i++){
   React[notPortedYetComponents[i]] = require('./src/components/NotPortedYet');
 }

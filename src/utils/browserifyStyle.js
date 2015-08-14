@@ -4,6 +4,8 @@ function applyPxIfNumber(value){
 }
 
 function browserifyStyle(style = {}){
+  // Style is nullish, return it.
+  if(style === null || typeof style === 'undefined') return style;
   // Properties that are numeric on react-native but needs px on web
   var propsThatNeedsPx = [
     'borderRadius',
