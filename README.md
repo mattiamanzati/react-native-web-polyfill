@@ -37,3 +37,153 @@ npm install react-native-web-polyfill
 - Run webpack
 - Create an HTML document, with a div with an id="app" including the bundled webpack script and linking the css stylesheet node_modules/react-native-web-polyfill/style.css
 - Report any error to let us improve and help you! :D
+
+
+----------
+## Supported Classes & Components
+
+ - [X] StyleSheet
+   - [X] create
+
+ - [ ] AppRegistry
+   - [ ] getAppKeys
+   - [X] registerComponent
+   - [ ] registerConfig
+   - [ ] registerRunnable
+   - [ ] runApplication
+
+ - [ ] View
+   - [ ] accessible
+   - [ ] accessibilityLabel
+   - [ ] accessibilityComponentType
+   - [ ] accessibilityLiveRegion
+   - [ ] accessibilityTraits
+   - [ ] onAcccessibilityTap
+   - [ ] onMagicTap
+   - [X] testID
+   - [ ] onMoveShouldSetResponder
+   - [ ] onResponderGrant
+   - [ ] onResponderMove
+   - [ ] onResponderReject
+   - [ ] onResponderRelease
+   - [ ] onResponderTerminate
+   - [ ] onResponderTerminationRequest
+   - [ ] onStartShouldSetResponder
+   - [ ] onStartShouldSetResponderCapture
+   - [ ] onLayout
+   - [ ] pointerEvents
+   - [X] style
+   - [X] removeClippedSubviews *useless*
+   - [X] renderToHardwareTextureAndroid *useless*
+   - [X] shouldRasterizeIOS *useless*
+   - [ ] collapsable
+
+ - [ ] Text
+   - [ ] numberOfLines
+   - [ ] onLayout
+   - [ ] onPress
+   - [ ] suppressHighlighting
+   - [X] style
+   - [X] testID
+   - [ ] allowFontScaling
+
+ - [ ] Image
+   - [ ] onLayout
+   - [X] resizeMode
+   - [X] source
+   - [X] style
+   - [X] testID
+   - [ ] accessibilityLabel
+   - [ ] accessible
+   - [ ] capInsets
+   - [ ] defaultSource
+   - [ ] onError
+   - [ ] onLoad
+   - [ ] onLoadEnd
+   - [ ] onLoadStart
+   - [ ] onProgress
+
+ - [ ] ScrollView
+   - [ ] alwaysBounceHorizontal
+   - [ ] alwaysBounceVertical
+   - [ ] automaticallyAdjustContentInsets
+   - [ ] bounces
+   - [ ] bouncesZoom
+   - [ ] canCancelContentTouches
+   - [ ] centerContent
+   - [ ] contentContainerStyle
+   - [ ] contentInset
+   - [ ] contentOffset
+   - [ ] decelerationRate
+   - [ ] directionalLockEnabled
+   - [X] horizontal
+   - [ ] keyboardDismissMode
+   - [ ] keyboardShouldPersistTaps
+   - [ ] maximumZoomScale
+   - [ ] minimumZoomScale
+   - [ ] onScroll
+   - [ ] onScrollAnimationEnd
+   - [ ] pagingEnabled
+   - [ ] removeClippedSubviews
+   - [ ] scrollEnabled
+   - [ ] scrollEventThrottle
+   - [ ] scrollIndicatorInsets
+   - [ ] scrollsToTop
+   - [ ] showsHorizontalScrollIndicator
+   - [ ] showsVerticalScrollIndicator
+   - [ ] stickyHeaderIndices
+   - [X] style
+   - [ ] zoomScale
+
+ - [ ] TextInput
+   - [ ] autoCapitalize
+   - [ ] autoCorrect
+   - [ ] autoFocus
+   - [ ] clearButtonMode
+   - [ ] clearTextOnFocus
+   - [X] defaultValue
+   - [ ] editable
+   - [ ] enablesReturnKeyAutomatically
+   - [ ] keyboardType
+   - [ ] maxLength
+   - [X] multiline
+   - [ ] onBlur
+   - [ ] onChange
+   - [X] onChangeText
+   - [ ] onEndEditing
+   - [ ] onFocus
+   - [ ] onLayout
+   - [ ] onSubmitEditing
+   - [ ] placeholder
+   - [ ] placeholderTextColor
+   - [ ] returnKeyType
+   - [ ] secureTextEntry
+   - [ ] selectTextOnFocus
+   - [ ] selectionState
+   - [X] style
+   - [X] testID
+   - [ ] textAlign
+   - [ ] textAlignVertical
+   - [ ] underlineColorAndroid
+   - [X] value
+
+ - [ ] TouchableHighlight
+   - [ ] activeOpacity
+   - [ ] onHideUnderlay
+   - [ ] onShowUnderlay
+   - [X] style
+   - [ ] underlayColor
+
+ - [ ] TouchableOpacity
+   - [ ] ...TouchableWithoutFeedback properties
+   - [ ] activeOpacity
+
+ - [ ] TouchableWithoutFeedback
+   - [ ] accessible
+   - [ ] delayLongPress
+   - [ ] delayPressIn
+   - [ ] delayPressOut
+   - [ ] onLongPress
+   - [X] onPress
+   - [ ] onPressIn
+   - [ ] onPressOut
