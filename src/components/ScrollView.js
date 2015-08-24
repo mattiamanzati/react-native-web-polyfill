@@ -1,6 +1,7 @@
 var React = require('react');
 var Radium = require('radium');
 var browserifyStyle = require('../utils/browserifyStyle');
+var fixOldFlexbox = require('../utils/fixOldFlexbox');
 var View = require('./View');
 
 class ScrollView extends React.Component{
@@ -16,4 +17,4 @@ class ScrollView extends React.Component{
   }
 }
 
-module.exports = Radium(ScrollView);
+module.exports = fixOldFlexbox(Radium(ScrollView));

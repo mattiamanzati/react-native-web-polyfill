@@ -1,6 +1,7 @@
 var React = require('react');
 var Radium = require('radium');
 var browserifyStyle = require('../utils/browserifyStyle');
+var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class NotPortedYet extends React.Component{
     render(){
@@ -30,4 +31,4 @@ var styles = {
   }
 }
 
-module.exports = Radium(NotPortedYet);
+module.exports = fixOldFlexbox(Radium(NotPortedYet));

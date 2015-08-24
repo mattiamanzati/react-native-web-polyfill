@@ -1,6 +1,7 @@
 var React = require('react');
 var Radium = require('radium');
 var browserifyStyle = require('../utils/browserifyStyle');
+var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class TextInput extends React.Component{
   onChange(e){
@@ -37,4 +38,4 @@ class TextInput extends React.Component{
   }
 }
 
-module.exports = Radium(TextInput);
+module.exports = fixOldFlexbox(Radium(TextInput));

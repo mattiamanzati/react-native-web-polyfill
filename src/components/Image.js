@@ -1,6 +1,7 @@
 var React = require('react');
 var Radium = require('radium');
 var browserifyStyle = require('../utils/browserifyStyle');
+var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class Image extends React.Component{
   render(){
@@ -23,12 +24,10 @@ class Image extends React.Component{
   }
 }
 
-Image = Radium(Image);
-
 Image.resizeMode = {
   cover: 'cover',
   contain: 'contain',
   stretch: 'stretch'
 };
 
-module.exports = Image;
+module.exports = fixOldFlexbox(Radium(Image));

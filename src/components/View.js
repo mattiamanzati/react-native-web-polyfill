@@ -1,6 +1,7 @@
 var React = require('react');
 var Radium = require('radium');
 var browserifyStyle = require('../utils/browserifyStyle');
+var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class View extends React.Component{
     render(){
@@ -10,4 +11,4 @@ class View extends React.Component{
     }
 }
 
-module.exports = Radium(View);
+module.exports = fixOldFlexbox(Radium(View));

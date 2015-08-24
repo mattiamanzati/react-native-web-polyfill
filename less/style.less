@@ -21,3 +21,8 @@ html, body, #app{
   display: flex;
   flex-direction: column;
 }
+
+// make React-added spans display as inline-block to avoid IE10 bug around flexbox and inline elements.
+span{
+  display: inline-block;
+}

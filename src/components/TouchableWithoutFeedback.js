@@ -1,6 +1,7 @@
 var React = require('react');
 var Radium = require('radium');
 var browserifyStyle = require('../utils/browserifyStyle');
+var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class TouchableWithoutFeedback extends React.Component{
   onClick(e){
@@ -14,4 +15,4 @@ class TouchableWithoutFeedback extends React.Component{
   }
 }
 
-module.exports = Radium(TouchableWithoutFeedback);
+module.exports = fixOldFlexbox(Radium(TouchableWithoutFeedback));
