@@ -20,6 +20,15 @@
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
 }
+#app .view.none,
+#app .view.box-none,
+#app .view.box-only * {
+  pointer-events: none;
+}
+#app .view.box-none *,
+#app .view.box-only {
+  pointer-events: all;
+}
 #app .text {
   box-sizing: border-box;
   position: relative;
