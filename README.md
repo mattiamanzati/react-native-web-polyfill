@@ -71,7 +71,7 @@ npm install react-native-web-polyfill
    - [ ] onStartShouldSetResponder
    - [ ] onStartShouldSetResponderCapture
    - [ ] onLayout
-   - [ ] pointerEvents
+   - [X] pointerEvents
    - [X] style
    - [X] removeClippedSubviews *useless*
    - [X] renderToHardwareTextureAndroid *useless*
