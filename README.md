@@ -81,7 +81,7 @@ npm install react-native-web-polyfill
  - [ ] Text
    - [ ] numberOfLines
    - [ ] onLayout
-   - [ ] onPress
+   - [X] onPress
    - [ ] suppressHighlighting
    - [X] style
    - [X] testID
@@ -147,14 +147,14 @@ npm install react-native-web-polyfill
    - [ ] keyboardType
    - [ ] maxLength
    - [X] multiline
-   - [ ] onBlur
-   - [ ] onChange
+   - [X] onBlur
+   - [X] onChange
    - [X] onChangeText
    - [ ] onEndEditing
-   - [ ] onFocus
+   - [X] onFocus
    - [ ] onLayout
    - [ ] onSubmitEditing
-   - [ ] placeholder
+   - [X] placeholder
    - [ ] placeholderTextColor
    - [ ] returnKeyType
    - [ ] secureTextEntry

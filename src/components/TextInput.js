@@ -4,9 +4,20 @@ var browserifyStyle = require('../utils/browserifyStyle');
 var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class TextInput extends React.Component{
+  // onChange and onChangeText support
   onChange(e){
     if(this.props.onChangeText) this.props.onChangeText(e.target.value);
     if(this.props.onChange) this.props.onChange(e);
+  }
+
+  // onFocus support
+  onFocus(e){
+    if(this.props.onFocus) this.props.onFocus(e);
+  }
+
+  // onBlur support
+  onBlur(e){
+    if(this.props.onBlur) this.props.onBlur(e);
   }
 
   render(){
@@ -33,6 +44,8 @@ class TextInput extends React.Component{
       ...props,
       className: 'text-input',
       onChange: (e) => this.onChange(e),
+      onFocus: (e) => this.onFocus(e),
+      onBlur: (e) => this.onBlur(e),
       style: browserifyStyle(this.props.style)
     }, null);
   }

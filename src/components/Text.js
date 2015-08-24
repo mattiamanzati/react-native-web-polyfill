@@ -4,6 +4,7 @@ var browserifyStyle = require('../utils/browserifyStyle');
 var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class Text extends React.Component{
+  // onPress support
   onClick(e){
     if(this.props.onPress) this.props.onPress(e);
   }
