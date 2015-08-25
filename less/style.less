@@ -20,9 +20,11 @@ html, body, #app{
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* by default, react-native crops content */
 }
 
 // make React-added spans display as inline-block to avoid IE10 bug around flexbox and inline elements.
+// NOTE: they should be avoided by the way.
 span{
   display: inline-block;
 }

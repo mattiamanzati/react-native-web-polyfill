@@ -82,7 +82,7 @@ npm install react-native-web-polyfill
    - [ ] numberOfLines
    - [ ] onLayout
    - [X] onPress
-   - [ ] suppressHighlighting
+   - [X] suppressHighlighting
    - [X] style
    - [X] testID
    - [ ] allowFontScaling
