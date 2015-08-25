@@ -111,7 +111,7 @@ npm install react-native-web-polyfill
    - [ ] bouncesZoom
    - [ ] canCancelContentTouches
    - [ ] centerContent
-   - [ ] contentContainerStyle
+   - [X] contentContainerStyle
    - [ ] contentInset
    - [ ] contentOffset
    - [ ] decelerationRate
