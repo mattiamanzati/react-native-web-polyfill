@@ -1,5 +1,6 @@
 # react-native-web-polyfill
 A set of classes and react components to make work your react-native app in a browser. (with some limitations obviously)
+ - [Slack channel on reactiflux!](https://reactiflux.slack.com/messages/react-native-for-web/details/)
 
 ### WARNING!
 This package is in pre-pre-pre-pre-pre-pre-pre-pre-pre-beta version! API will not change (as we are emulating the react-native ones ahah) but lots of components or properties could be missing.
