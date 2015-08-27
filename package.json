@@ -1,6 +1,6 @@
 {
   "name": "react-native-web-polyfill",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A set of classes and react components to make work your react-native app in a browser. (with some limitations obviously)",
   "main": "index.js",
   "scripts": {
