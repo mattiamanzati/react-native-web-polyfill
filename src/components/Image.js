@@ -5,11 +5,10 @@ var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class Image extends React.Component{
   render(){
-    var backgroundSize = typeof this.props.resizeMode === 'undefined' ?
-      'cover' : this.props.resizeMode;
+    var {resizeMode, backgroundImage, source: {uri}, ...props} = this.props;
 
-    var backgroundImage = typeof this.props.source === 'undefined' ?
-      'none' : 'url(' + this.props.source.uri + ')';
+    var backgroundSize = typeof resizeMode === 'undefined' ? 'cover' : resizeMode;
+    var backgroundImage = typeof uri === 'undefined' ? 'none' : 'url(' + uri + ')';
 
     var style = {
       backgroundSize,
@@ -17,12 +16,15 @@ class Image extends React.Component{
     };
 
     // TODO: handle onLoad and onError events
+    // TODO: handle tintColor via canvas image manipulation
 
-    return <div className="image" style={browserifyStyle(style, this.props.style)}>
-      {this.props.children}
+    return <div className="image" style={browserifyStyle(style, props.style)}>
+      {props.children}
     </div>;
   }
 }
+
+Image = fixOldFlexbox(Radium(Image));
 
 Image.resizeMode = {
   cover: 'cover',
@@ -30,4 +32,4 @@ Image.resizeMode = {
   stretch: 'stretch'
 };
 
-module.exports = fixOldFlexbox(Radium(Image));
+module.exports = Image;

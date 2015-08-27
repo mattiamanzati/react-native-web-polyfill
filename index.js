@@ -3,6 +3,7 @@ var React = require('react');
 // classes polyfills
 React.StyleSheet = require('./src/classes/StyleSheet');
 React.AppRegistry = require('./src/classes/AppRegistry');
+React.PixelRatio = require('./src/classes/PixelRatio');
 
 // components polyfills
 React.View = require('./src/components/View');

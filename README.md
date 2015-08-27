@@ -38,6 +38,11 @@ npm install react-native-web-polyfill
 - Create an HTML document, with a div with an id="app" including the bundled webpack script and linking the css stylesheet node_modules/react-native-web-polyfill/style.css
 - Report any error to let us improve and help you! :D
 
+### Building the library
+Move into the package folder and run in your terminal:
+```
+npm run build
+```
 
 ----------
 ## Supported Classes & Components
@@ -162,7 +167,7 @@ npm install react-native-web-polyfill
    - [ ] selectionState
    - [X] style
    - [X] testID
-   - [ ] textAlign
+   - [X] textAlign
    - [ ] textAlignVertical
    - [ ] underlineColorAndroid
    - [X] value

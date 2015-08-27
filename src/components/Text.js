@@ -10,11 +10,16 @@ class Text extends React.Component{
   }
 
   render(){
+    // create the classNames
     var classNames = ['text'];
 
-    if(this.props.suppressHighlighting) classNames.push('suppress-highlighting');
+    // deconstruct needed elements
+    var {suppressHighlighting} = this.props;
 
-    return <span onClick={(e) => this.onClick(e)} className={classNames.join(' ')} style={browserifyStyle(this.props.style)}>
+    // handle suppress-highlighting if needed
+    if(suppressHighlighting) classNames.push('suppress-highlighting');
+
+    return <span className={classNames.join(' ')} onClick={(e) => this.onClick(e)} style={browserifyStyle(this.props.style)}>
       {this.props.children}
     </span>;
   }

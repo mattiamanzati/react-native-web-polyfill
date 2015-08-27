@@ -5,11 +5,14 @@ var fixOldFlexbox = require('../utils/fixOldFlexbox');
 
 class View extends React.Component{
   render(){
+    // decostruct utility data from the props
+    var {pointerEvents, ...props} = this.props;
+
+    // create the class names
     var classNames = ['view'];
-    var {pointerEvents} = this.props;
 
     // if pointer events available, push them into the class
-    if(pointerEvents) classNames.push(pointerEvents);
+    if(pointerEvents) classNames.push('pointer-events-' + pointerEvents);
 
     // return the actual element
     return <div className={classNames.join(' ')} style={browserifyStyle(this.props.style)}>

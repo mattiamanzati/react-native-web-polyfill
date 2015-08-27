@@ -21,32 +21,40 @@ class TextInput extends React.Component{
   }
 
   render(){
-    var type = 'input';
+    // by default, use a input[text]
+    var tagName = 'input';
+    var type = 'text';
+
     // copy over the same props to the new props for the input
-    var {defaultValue, value, placeholder} = this.props;
-    var props = {
-      type: 'text',
-      defaultValue,
-      value,
-      placeholder
-    };
+    var {defaultValue, value, placeholder, multiline, secureTextEntry, textAlign, style, ...props} = this.props;
+
+    // init the classNames
+    var classNames = ['text-input'];
+
+    // handle the textAlign
+    if(textAlign) classNames.push('text-align-' + textAlign);
+
     // If multiline, convert to a textarea
-    if(this.props.multiline) type = 'textarea';
+    if(multiline) tagName = 'textarea';
 
     // if needs password-like, convert to password field.
-    if(this.props.secureTextEntry){
-      props.type = 'password';
-      type = 'input';
+    if(secureTextEntry){
+      type = 'password';
+      tagName = 'input'; // TODO: multiline password-protected inputs?
     }
 
     // return the input
-    return React.createElement(type, {
-      ...props,
-      className: 'text-input',
+    return React.createElement(tagName, {
+      className: classNames.join(' '),
+
+      value,
+      defaultValue,
+      placeholder,
+      style: browserifyStyle(style),
+
       onChange: (e) => this.onChange(e),
       onFocus: (e) => this.onFocus(e),
-      onBlur: (e) => this.onBlur(e),
-      style: browserifyStyle(this.props.style)
+      onBlur: (e) => this.onBlur(e)
     }, null);
   }
 }
