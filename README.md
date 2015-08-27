@@ -12,6 +12,9 @@ By the way we are planning to provide an extra folder that will contains polyfil
 ### Check out the examples!
 - [Sample App](http://mattiamanzati.github.io/react-native-web-polyfill/examples/SampleApp/)
 - [Tic Tac Toe](http://mattiamanzati.github.io/react-native-web-polyfill/examples/TicTacToe/)
+- [UIExplorer](http://mattiamanzati.github.io/react-native-web-polyfill/examples/UIExplorer/)
+
+NOTE: Since the original UIExplorer contains a lot of examples that also uses native modules, we have copied only the components already ported, but the may miss support for some props.
 
 ### How can i install this?
 - Move into your react-native project folder and install react-native-web-polyfill
