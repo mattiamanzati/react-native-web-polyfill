@@ -177,6 +177,10 @@
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 html,
 body,
