@@ -69,7 +69,7 @@
 	var StyleSheet = React.StyleSheet;
 	var AppRegistry = React.AppRegistry;
 	
-	var EXAMPLES = [__webpack_require__(186), __webpack_require__(187), __webpack_require__(188), __webpack_require__(189), __webpack_require__(196), __webpack_require__(197), __webpack_require__(198)];
+	var EXAMPLES = [__webpack_require__(187), __webpack_require__(188), __webpack_require__(189), __webpack_require__(190), __webpack_require__(197), __webpack_require__(198), __webpack_require__(199)];
 	
 	var App = (function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -252,12 +252,12 @@
 	
 	React.TouchableWithoutFeedback = __webpack_require__(184);
 	React.TouchableHighlight = __webpack_require__(184);
-	React.TouchableOpacity = __webpack_require__(184);
+	React.TouchableOpacity = __webpack_require__(185);
 	
 	// Not ported yet.
 	var notPortedYetComponents = ['ActivityIndicatorIOS', 'DatePickerIOS', 'ListView', 'MapView', 'Navigator', 'NavigatorIOS', 'PickerIOS', 'SegmentedControlIOS', 'SliderIOS', 'SwitchIOS', 'TabBarIOS', 'WebView'];
 	for (var i = 0; i < notPortedYetComponents.length; i++) {
-	  React[notPortedYetComponents[i]] = __webpack_require__(185);
+	  React[notPortedYetComponents[i]] = __webpack_require__(186);
 	}
 	
 	// exports
@@ -20471,37 +20471,199 @@
 	      if (this.props.onPress) this.props.onPress(e);
 	    }
 	  }, {
-	    key: 'render',
-	    value: function render() {
+	    key: 'onMouseDown',
+	    value: function onMouseDown(e) {
 	      var _this = this;
 	
-	      // deconstruct from the props
+	      // handle onPressIn
 	      var _props = this.props;
-	      var style = _props.style;
+	      var _props$delayPressIn = _props.delayPressIn;
+	      var delayPressIn = _props$delayPressIn === undefined ? 0 : _props$delayPressIn;
+	      var _props$onPressIn = _props.onPressIn;
+	      var onPressIn = _props$onPressIn === undefined ? false : _props$onPressIn;
+	      var _props$delayLongPress = _props.delayLongPress;
+	      var delayLongPress = _props$delayLongPress === undefined ? 500 : _props$delayLongPress;
+	      var _props$onLongPress = _props.onLongPress;
+	      var onLongPress = _props$onLongPress === undefined ? false : _props$onLongPress;
 	
-	      var props = _objectWithoutProperties(_props, ['style']);
+	      // there is no press in event, so do nothing
+	      if (!onPressIn) return;
+	      // call the event after a delay
+	      this.delayPressIn = setTimeout(function () {
+	        onPressIn(e);
+	        // setup the delay for a long press
+	        _this.delayLongPress = setTimeout(function () {
+	          return onLongPress(e);
+	        }, delayLongPress);
+	      }, delayPressIn);
+	    }
+	  }, {
+	    key: 'onMouseUp',
+	    value: function onMouseUp(e) {
+	      // handle onPressOut
+	      var _props2 = this.props;
+	      var _props2$delayPressOut = _props2.delayPressOut;
+	      var delayPressOut = _props2$delayPressOut === undefined ? 0 : _props2$delayPressOut;
+	      var _props2$onPressOut = _props2.onPressOut;
+	      var onPressOut = _props2$onPressOut === undefined ? false : _props2$onPressOut;
 	
-	      // create the class names
-	      var classNames = ['touchable-without-feedback'];
+	      // there is no press in event, so do nothing
+	      if (!onPressOut) return;
+	      // call the event after a delay
+	      setTimeout(function () {
+	        return onPressOut(e);
+	      }, delayPressOut);
+	      // if there was a delay for press in, clear it
+	      if (this.delayPressIn) {
+	        clearTimeout(this.delayPressIn);
+	        this.delayPressIn = null;
+	      }
+	      // if there was a delay for a long press, clear it
+	      if (this.delayLongPress) {
+	        clearTimeout(this.delayLongPress);
+	        this.delayLongPress = null;
+	      }
+	    }
+	
+	    // bind event handlers
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      React.findDOMNode(this.refs.child).addEventListener('click', this.onClick.bind(this));
+	      React.findDOMNode(this.refs.child).addEventListener('mousedown', this.onMouseDown.bind(this));
+	      React.findDOMNode(this.refs.child).addEventListener('mouseup', this.onMouseUp.bind(this));
+	    }
+	  }, {
+	    key: 'componentDidUnmount',
+	    value: function componentDidUnmount() {
+	      React.findDOMNode(this.refs.child).removeEventListener('click', this.onClick.bind(this));
+	      React.findDOMNode(this.refs.child).removeEventListener('mousedown', this.onMouseDown.bind(this));
+	      React.findDOMNode(this.refs.child).removeEventListener('mouseup', this.onMouseUp.bind(this));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      // deconstruct from the props
+	      var _props3 = this.props;
+	      var children = _props3.children;
+	
+	      var props = _objectWithoutProperties(_props3, ['children']);
 	
 	      // returns the component
-	      return React.createElement(
-	        'div',
-	        { className: classNames.join(' '), onClick: function (e) {
-	            return _this.onClick(e);
-	          }, style: browserifyStyle(style) },
-	        this.props.children
-	      );
+	      return React.cloneElement(children, {
+	        ref: 'child',
+	        style: [styles.main].concat(Array.isArray(children.props.style) ? children.props.style : [children.props.style])
+	      });
 	    }
 	  }]);
 	
 	  return TouchableWithoutFeedback;
 	})(React.Component);
 	
+	var styles = {
+	  main: {
+	    cursor: 'pointer',
+	    userSelect: 'none'
+	  }
+	};
+	
 	module.exports = fixOldFlexbox(Radium(TouchableWithoutFeedback));
 
 /***/ },
 /* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(3);
+	var TouchableWithoutFeedback = __webpack_require__(184);
+	var View = __webpack_require__(162);
+	
+	var TouchableOpacity = (function (_React$Component) {
+	  _inherits(TouchableOpacity, _React$Component);
+	
+	  function TouchableOpacity() {
+	    _classCallCheck(this, TouchableOpacity);
+	
+	    _get(Object.getPrototypeOf(TouchableOpacity.prototype), 'constructor', this).call(this);
+	    this.state = {
+	      opacity: 1
+	    };
+	  }
+	
+	  _createClass(TouchableOpacity, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      React.findDOMNode(this.refs.child).addEventListener('mousedown', this.onMouseDown.bind(this));
+	      React.findDOMNode(this.refs.child).addEventListener('mouseup', this.onMouseUp.bind(this));
+	    }
+	  }, {
+	    key: 'componentDidUnmount',
+	    value: function componentDidUnmount() {
+	      React.findDOMNode(this.refs.child).removeEventListener('mousedown', this.onMouseDown.bind(this));
+	      React.findDOMNode(this.refs.child).removeEventListener('mouseup', this.onMouseUp.bind(this));
+	    }
+	  }, {
+	    key: 'onMouseUp',
+	    value: function onMouseUp() {
+	      this.setState({ opacity: 1 });
+	    }
+	  }, {
+	    key: 'onMouseDown',
+	    value: function onMouseDown() {
+	      // deconstruct active opacity
+	      var _props$activeOpacity = this.props.activeOpacity;
+	      var activeOpacity = _props$activeOpacity === undefined ? 0.2 : _props$activeOpacity;
+	
+	      // set the state
+	      this.setState({ opacity: activeOpacity });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      // deconstruct style and other
+	      var _props = this.props;
+	      var style = _props.style;
+	
+	      var props = _objectWithoutProperties(_props, ['style']);
+	
+	      return React.createElement(
+	        TouchableWithoutFeedback,
+	        _extends({ ref: 'child' }, props),
+	        React.createElement(
+	          View,
+	          { style: [{ opacity: this.state.opacity }].concat(Array.isArray(style) ? style : [style]) },
+	          this.props.children
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return TouchableOpacity;
+	})(React.Component);
+	
+	module.exports = TouchableOpacity;
+	
+	/*
+	,
+	style: [styles.main].concat(Array.isArray(style) ? style : [style])
+	    .concat(Array.isArray(children.props.style) ? children.props.style : [children.props.style])
+	    */
+
+/***/ },
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20569,7 +20731,7 @@
 	module.exports = fixOldFlexbox(Radium(NotPortedYet));
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20722,7 +20884,7 @@
 	}];
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20958,7 +21120,7 @@
 	}];
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21413,7 +21575,7 @@
 	});
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21439,7 +21601,7 @@
 	var Text = React.Text;
 	var View = React.View;
 	
-	var ImageCapInsetsExample = __webpack_require__(190);
+	var ImageCapInsetsExample = __webpack_require__(191);
 	
 	exports.framework = 'React';
 	exports.title = '<Image>';
@@ -21461,10 +21623,10 @@
 	    return React.createElement(
 	      View,
 	      { style: styles.horizontal },
-	      React.createElement(Image, { source: __webpack_require__(192), style: styles.icon }),
 	      React.createElement(Image, { source: __webpack_require__(193), style: styles.icon }),
 	      React.createElement(Image, { source: __webpack_require__(194), style: styles.icon }),
-	      React.createElement(Image, { source: __webpack_require__(195), style: styles.icon })
+	      React.createElement(Image, { source: __webpack_require__(195), style: styles.icon }),
+	      React.createElement(Image, { source: __webpack_require__(196), style: styles.icon })
 	    );
 	  }
 	}, {
@@ -21583,19 +21745,19 @@
 	      View,
 	      { style: styles.horizontal },
 	      React.createElement(Image, {
-	        source: __webpack_require__(192),
+	        source: __webpack_require__(193),
 	        style: [styles.icon, { tintColor: 'blue' }]
 	      }),
 	      React.createElement(Image, {
-	        source: __webpack_require__(192),
+	        source: __webpack_require__(193),
 	        style: [styles.icon, styles.leftMargin, { tintColor: 'green' }]
 	      }),
 	      React.createElement(Image, {
-	        source: __webpack_require__(192),
+	        source: __webpack_require__(193),
 	        style: [styles.icon, styles.leftMargin, { tintColor: 'red' }]
 	      }),
 	      React.createElement(Image, {
-	        source: __webpack_require__(192),
+	        source: __webpack_require__(193),
 	        style: [styles.icon, styles.leftMargin, { tintColor: 'black' }]
 	      })
 	    );
@@ -21699,7 +21861,7 @@
 	});
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21742,7 +21904,7 @@
 	          'capInsets: none'
 	        ),
 	        React.createElement(Image, {
-	          source: __webpack_require__(191),
+	          source: __webpack_require__(192),
 	          style: styles.storyBackground,
 	          capInsets: { left: 0, right: 0, bottom: 0, top: 0 }
 	        })
@@ -21756,7 +21918,7 @@
 	          'capInsets: 15'
 	        ),
 	        React.createElement(Image, {
-	          source: __webpack_require__(191),
+	          source: __webpack_require__(192),
 	          style: styles.storyBackground,
 	          capInsets: { left: 15, right: 15, bottom: 15, top: 15 }
 	        })
@@ -21788,37 +21950,37 @@
 	module.exports = ImageCapInsetsExample;
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports) {
 
 	module.exports = {"uri":"images/story-background.png","isStatic":true};
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports) {
 
 	module.exports = {"uri":"images/uie_thumb_normal.png","isStatic":true};
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports) {
 
 	module.exports = {"uri":"images/uie_thumb_selected.png","isStatic":true};
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports) {
 
 	module.exports = {"uri":"images/uie_comment_normal.png","isStatic":true};
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports) {
 
 	module.exports = {"uri":"images/uie_comment_highlighted.png","isStatic":true};
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22061,7 +22223,7 @@
 	});
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22181,7 +22343,7 @@
 	});
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**

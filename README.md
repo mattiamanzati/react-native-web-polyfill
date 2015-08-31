@@ -190,9 +190,9 @@ npm run build
  - [ ] TouchableWithoutFeedback
    - [ ] accessible
    - [ ] delayLongPress
-   - [ ] delayPressIn
-   - [ ] delayPressOut
+   - [X] delayPressIn
+   - [X] delayPressOut
    - [ ] onLongPress
    - [X] onPress
-   - [ ] onPressIn
-   - [ ] onPressOut
+   - [X] onPressIn
+   - [X] onPressOut
