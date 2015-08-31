@@ -14,7 +14,7 @@ React.ScrollView = require('./src/components/ScrollView');
 
 React.TouchableWithoutFeedback = require('./src/components/TouchableWithoutFeedback');
 React.TouchableHighlight = require('./src/components/TouchableWithoutFeedback');
-React.TouchableOpacity = require('./src/components/TouchableWithoutFeedback');
+React.TouchableOpacity = require('./src/components/TouchableOpacity');
 
 // Not ported yet.
 var notPortedYetComponents = ['ActivityIndicatorIOS', 'DatePickerIOS', 'ListView', 'MapView',
