@@ -1,6 +1,7 @@
 var React = require('react');
 var TouchableWithoutFeedback = require('./TouchableWithoutFeedback');
 var View = require('./View');
+var Hammer = require('hammerjs');
 
 class TouchableOpacity extends React.Component{
   constructor(){
@@ -10,14 +11,26 @@ class TouchableOpacity extends React.Component{
     };
   }
 
+  // bind event handlers
   componentDidMount(){
-    React.findDOMNode(this.refs.child).addEventListener('mousedown', this.onMouseDown.bind(this));
-    React.findDOMNode(this.refs.child).addEventListener('mouseup', this.onMouseUp.bind(this));
+    // create hammer instance
+    if(!this.hammer){
+      this.hammer = new Hammer.Manager(React.findDOMNode(this.refs.main));
+      var press = new Hammer.Press({time: 0, threshold: 10000});
+      this.hammer.add([press]);
+    }
+    // binds events
+    this.hammer.on('press', this.onMouseDown.bind(this));
+    this.hammer.on('pressup', this.onMouseUp.bind(this));
   }
 
   componentDidUnmount(){
-    React.findDOMNode(this.refs.child).removeEventListener('mousedown', this.onMouseDown.bind(this));
-    React.findDOMNode(this.refs.child).removeEventListener('mouseup', this.onMouseUp.bind(this));
+    // if no hammer instance exists, return
+    if(!this.hammer) return;
+    // unbind hammer events
+    this.hammer.off('press', this.onMouseDown.bind(this));
+    this.hammer.off('pressup', this.onMouseUp.bind(this));
+    this.hammer.destroy();
   }
 
   onMouseUp(){
@@ -35,7 +48,7 @@ class TouchableOpacity extends React.Component{
     // deconstruct style and other
     var {style, ...props} = this.props;
 
-    return <TouchableWithoutFeedback ref='child' {...props}>
+    return <TouchableWithoutFeedback  ref='main' {...props}>
       <View style={[{opacity: this.state.opacity}].concat(Array.isArray(style) ? style : [style])}>
         {this.props.children}
       </View>
