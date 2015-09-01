@@ -20184,8 +20184,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this = this;
-	
 	      // create the classNames
 	      var classNames = ['text'];
 	
@@ -20197,9 +20195,7 @@
 	
 	      return React.createElement(
 	        'span',
-	        { ref: 'main', className: classNames.join(' '), onClick: function (e) {
-	            return _this.onClick(e);
-	          }, style: browserifyStyle(this.props.style) },
+	        { ref: 'main', className: classNames.join(' '), style: browserifyStyle(this.props.style) },
 	        this.props.children
 	      );
 	    }

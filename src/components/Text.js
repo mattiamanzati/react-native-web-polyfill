@@ -40,7 +40,7 @@ class Text extends React.Component{
     // handle suppress-highlighting if needed
     if(suppressHighlighting) classNames.push('suppress-highlighting');
 
-    return <span ref='main' className={classNames.join(' ')} onClick={(e) => this.onClick(e)} style={browserifyStyle(this.props.style)}>
+    return <span ref='main' className={classNames.join(' ')} style={browserifyStyle(this.props.style)}>
       {this.props.children}
     </span>;
   }
