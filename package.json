@@ -23,6 +23,7 @@
   "homepage": "https://github.com/mattiamanzati/react-native-web-polyfill#readme",
   "dependencies": {
     "eventemitter3": "^1.1.1",
+    "hammerjs": "^2.0.4",
     "radium": "^0.13.7"
   },
   "peerDependencies": {
