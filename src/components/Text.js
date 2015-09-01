@@ -14,8 +14,9 @@ class Text extends React.Component{
   componentDidMount(){
     // create hammer instance
     if(!this.hammer){
-      this.hammer = new Hammer(React.findDOMNode(this.refs.main));
-      this.hammer.get('press').set({time: 80}); // just to avoid immediatly trigger the press
+      this.hammer = new Hammer.Manager(React.findDOMNode(this.refs.main));
+      var press = new Hammer.Press({time: 0});
+      this.hammer.add([press]);
     }
     // binds events
     this.hammer.on('press', this.onClick.bind(this));

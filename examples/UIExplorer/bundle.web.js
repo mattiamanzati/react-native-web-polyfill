@@ -20165,8 +20165,9 @@
 	    value: function componentDidMount() {
 	      // create hammer instance
 	      if (!this.hammer) {
-	        this.hammer = new Hammer(React.findDOMNode(this.refs.main));
-	        this.hammer.get('press').set({ time: 80 }); // just to avoid immediatly trigger the press
+	        this.hammer = new Hammer.Manager(React.findDOMNode(this.refs.main));
+	        var press = new Hammer.Press({ time: 0 });
+	        this.hammer.add([press]);
 	      }
 	      // binds events
 	      this.hammer.on('press', this.onClick.bind(this));
@@ -22799,6 +22800,12 @@
 	      if (this.props.onBlur) this.props.onBlur(e);
 	    }
 	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // if wanted, do autofocus
+	      if (this.props.autoFocus) React.findDOMNode(this.refs.main).focus();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this = this;
@@ -22836,6 +22843,7 @@
 	
 	      // return the input
 	      return React.createElement(tagName, {
+	        ref: 'main',
 	        className: classNames.join(' '),
 	
 	        value: value,
@@ -23122,13 +23130,11 @@
 	  }, {
 	    key: 'onMouseUp',
 	    value: function onMouseUp() {
-	      console.log('TouchableOpacity: onMouseUp');
 	      this.setState({ opacity: 1 });
 	    }
 	  }, {
 	    key: 'onMouseDown',
 	    value: function onMouseDown() {
-	      console.log('TouchableOpacity: onMouseDown');
 	      // deconstruct active opacity
 	      var _props$activeOpacity = this.props.activeOpacity;
 	      var activeOpacity = _props$activeOpacity === undefined ? 0.2 : _props$activeOpacity;
