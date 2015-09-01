@@ -19,6 +19,11 @@ class TextInput extends React.Component{
   onBlur(e){
     if(this.props.onBlur) this.props.onBlur(e);
   }
+  
+  componentDidMount(){
+    // if wanted, do autofocus
+    if(this.props.autoFocus) React.findDOMNode(this.refs.main).focus();
+  }
 
   render(){
     // by default, use a input[text]
@@ -45,6 +50,7 @@ class TextInput extends React.Component{
 
     // return the input
     return React.createElement(tagName, {
+      ref: 'main',
       className: classNames.join(' '),
 
       value,

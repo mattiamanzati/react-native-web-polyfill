@@ -147,7 +147,7 @@ npm run build
  - [ ] TextInput
    - [ ] autoCapitalize
    - [ ] autoCorrect
-   - [ ] autoFocus
+   - [X] autoFocus
    - [ ] clearButtonMode
    - [ ] clearTextOnFocus
    - [X] defaultValue
@@ -185,14 +185,14 @@ npm run build
 
  - [ ] TouchableOpacity
    - [ ] ...TouchableWithoutFeedback properties
-   - [ ] activeOpacity
+   - [X] activeOpacity
 
  - [ ] TouchableWithoutFeedback
    - [ ] accessible
-   - [ ] delayLongPress
+   - [X] delayLongPress
    - [X] delayPressIn
    - [X] delayPressOut
-   - [ ] onLongPress
+   - [X] onLongPress
    - [X] onPress
    - [X] onPressIn
    - [X] onPressOut
